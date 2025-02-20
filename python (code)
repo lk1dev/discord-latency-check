@@ -5,7 +5,7 @@ async def ping(ctx):
     user_roles = [role.name for role in ctx.author.roles]
 
     if not any(role in allowed_roles for role in user_roles):
-        await ctx.send(":warning: **Diesen Befehl dürfen nur Team-Mitglieder benutzen!**")
+        await ctx.send(":warning: **Only team members may use this command!**")
         return
 
     latency = round(bot.latency * 1000)  # Latency in ms
