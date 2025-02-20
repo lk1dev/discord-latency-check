@@ -7,6 +7,6 @@ Colored display depending on speed (green, orange, red).
 Only certain roles are allowed to use the command.
 
 ### ⚙️ Requirements
-discord.py installieren:
+discord.py install:
 ```sh
 pip install discord.py
