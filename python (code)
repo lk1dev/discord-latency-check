@@ -1,0 +1,22 @@
+@bot.command(name="ping")
+async def ping(ctx):
+    # Allowed roles
+    allowed_roles = [""]
+    user_roles = [role.name for role in ctx.author.roles]
+
+    if not any(role in allowed_roles for role in user_roles):
+        await ctx.send(":warning: **Diesen Befehl dürfen nur Team-Mitglieder benutzen!**")
+        return
+
+    latency = round(bot.latency * 1000)  # Latency in ms
+
+    # Console output
+    print(f"[PING] :alarm_clock: Die Latenz beträgt: {latency}ms")
+
+    embed = discord.Embed(
+        title=":ping_pong: Pong!",
+        description=f":stopwatch: **Latenz:** `{latency}ms`",
+        color=discord.Color.green() if latency < 100 else discord.Color.orange() if latency < 200 else discord.Color.red()
+    )
+
+    await ctx.send(embed=embed)
